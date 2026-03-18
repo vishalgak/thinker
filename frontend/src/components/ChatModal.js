@@ -73,9 +73,9 @@ const ChatModal = ({ theme, open, onClose, initialMessage }) => {
     try {
       setLoading(true);
       const res = await axios.post(
-        ${BASE_URL},
-        { message, originalText, sessionId }
-      );
+  `${BASE_URL}`,
+  { message, originalText, sessionId }
+);
       
       setChatHistory((prev) => [
         ...prev,

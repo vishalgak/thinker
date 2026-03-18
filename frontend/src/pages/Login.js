@@ -82,7 +82,7 @@ const Login = ({ theme, onLogin }) => {
     setError("");
     try {
       const response = await axios.post(
-        "${BASE_URL}/login",
+        `${BASE_URL}/login`,
         { email, password },
         { headers: { "Content-Type": "application/json" } }
       );

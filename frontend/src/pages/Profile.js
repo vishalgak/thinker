@@ -156,7 +156,7 @@ const Profile = ({ theme }) => {
     setUpdatingEmail(true);
     setError("");
     try {
-      await axios.post("${BASE_URL}/update-email", { userId, newEmail });
+      await axios.post(`${BASE_URL}/update-email`, { userId, newEmail });
       setEmail(newEmail);
       setIsEditingEmail(false);
     } catch (err) {
@@ -181,7 +181,7 @@ const Profile = ({ theme }) => {
     setError("");
     try {
       const socialMediaToSend = { ...socialMedia };
-      await axios.post("${BASE_URL}/update-social-media", { userId, ...socialMediaToSend });
+      await axios.post(`${BASE_URL}/update-social-media`, { userId, ...socialMediaToSend });
       setEditingField(null);
     } catch (err) {
       setError(`Failed to update ${platform} link.`);

@@ -35,7 +35,7 @@ const ForgotPassword = ({ theme }) => {
 
     try {
       const response = await axios.post(
-        "${BASE_URL}/verify-email",
+        `${BASE_URL}/verify-email`,
         { email },
       );
       setEmailVerified(true);
@@ -63,7 +63,7 @@ const ForgotPassword = ({ theme }) => {
 
     try {
       await axios.post(
-        "${BASE_URL}/forgot-password",
+        `${BASE_URL}/forgot-password`,
         { email, newPassword },
       );
       setSuccess("Password updated successfully.");

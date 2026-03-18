@@ -211,7 +211,7 @@ const Home = ({ theme }) => {
     setLoadingRefinement(true);
     try {
       const response = await axios.post(
-        "${BASE_URL}/refine-summary",
+        `${BASE_URL}/refine-summary`,
         {
           summary,
           refinementInstructions,
@@ -242,7 +242,7 @@ const Home = ({ theme }) => {
     try {
       setLoadingAudio(true);
       const response = await axios.post(
-        "${BASE_URL}/process-audio",
+        `${BASE_URL}/process-audio`,
         formData,
         {
           headers: {
@@ -267,7 +267,7 @@ const Home = ({ theme }) => {
     setLoadingRecommendations(true);
     try {
       const response = await axios.post(
-        "${BASE_URL}/actionable-recommendations",
+        `${BASE_URL}/actionable-recommendations`,
         {
           documentText: originalText,
         },
@@ -293,7 +293,7 @@ const Home = ({ theme }) => {
       const textToRewrite = window.tempSelectedText || originalText;
 
       const response = await axios.post(
-        "${BASE_URL}/content-rewriting",
+        `${BASE_URL}/content-rewriting`,
         {
           documentText: textToRewrite,
           style: desiredStyle,
@@ -341,7 +341,7 @@ const Home = ({ theme }) => {
 
     try {
       const response = await axios.post(
-        "${BASE_URL}/upload",
+        `${BASE_URL}/upload`,
         {
           title: "Selected Text",
           text: selectedText,
@@ -623,7 +623,7 @@ const Home = ({ theme }) => {
     setLoadingLanguage(true);
     try {
       const response = await axios.post(
-        "${BASE_URL}/summary-in-language",
+        `${BASE_URL}/summary-in-language`,
         {
           documentText: originalText,
           language,
@@ -646,7 +646,7 @@ const Home = ({ theme }) => {
     setLoadingSentiment(true); // Start loading
     try {
       const response = await axios.post(
-        "${BASE_URL}/sentiment-analysis",
+        `${BASE_URL}/sentiment-analysis`,
         {
           documentText: text,
         },
@@ -702,7 +702,7 @@ const Home = ({ theme }) => {
     setLoadingKeyIdeas(true);
     try {
       const response = await axios.post(
-        "${BASE_URL}/generate-key-ideas",
+        `${BASE_URL}/generate-key-ideas`,
         {
           documentText: originalText,
         },
@@ -722,7 +722,7 @@ const Home = ({ theme }) => {
     setLoadingDiscussionPoints(true);
     try {
       const response = await axios.post(
-        "${BASE_URL}/generate-discussion-points",
+        `${BASE_URL}/generate-discussion-points`,
         {
           documentText: originalText,
         },
@@ -744,7 +744,7 @@ const Home = ({ theme }) => {
     setLoadingBulletSummary(true);
     try {
       const response = await axios.post(
-        "${BASE_URL}/bullet-summary",
+        `${BASE_URL}/bullet-summary`,
         {
           documentText: originalText,
         },
@@ -4515,7 +4515,7 @@ const Home = ({ theme }) => {
                       fontFamily: "Poppins, sans-serif",
                     }}
                   >
-                    Very Long (>10)
+                    Very Long (10)
                   </Typography>
                 </Box>
               </Box>

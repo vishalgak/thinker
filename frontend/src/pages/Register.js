@@ -99,7 +99,7 @@ const Register = ({ theme }) => {
     try {
       setLoading(true);
       const response = await axios.post(
-        "${BASE_URL}/register",
+        `${BASE_URL}/register`,
         { email, password },
         { headers: { "Content-Type": "application/json" } }
       );

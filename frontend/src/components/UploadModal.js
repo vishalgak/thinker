@@ -193,7 +193,7 @@ const UploadModal = ({
 
       // Send the extracted text to the backend endpoint
       const response = await axios.post(
-        "${BASE_URL}/upload",
+        `${BASE_URL}/upload`,
         payload,
       );
       setLoading(false);
