@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import BASE_URL from "../config/api";
 import { Box, Typography, Container, Divider, Chip, Stack } from "@mui/material";
 import { keyframes } from "@emotion/react";
 

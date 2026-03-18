@@ -6,7 +6,7 @@
 const axios = require("axios");
 
 // Configure this to your backend URL
-const BASE_URL = process.env.BACKEND_URL || "http://localhost:3000";
+const BASE_URL = process.env.BACKEND_URL || "${BASE_URL}";
 
 // Test user data
 const TEST_USER_ID = "test-user-" + Date.now();

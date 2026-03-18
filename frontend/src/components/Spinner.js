@@ -1,4 +1,5 @@
 import React from "react";
+import BASE_URL from "../config/api";
 import { CircularProgress } from "@mui/material";
 
 const Spinner = () => {

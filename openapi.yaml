@@ -14,7 +14,7 @@ info:
 servers:
   - url: https://docuthinker-ai-app.onrender.com/
     description: Production server
-  - url: http://localhost:3000
+  - url: ${BASE_URL}
     description: Local server
 paths:
   /register:

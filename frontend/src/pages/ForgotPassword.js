@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import BASE_URL from "../config/api";
 import {
   Box,
   Button,
@@ -34,7 +35,7 @@ const ForgotPassword = ({ theme }) => {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/verify-email",
+        "${BASE_URL}/verify-email",
         { email },
       );
       setEmailVerified(true);
@@ -62,7 +63,7 @@ const ForgotPassword = ({ theme }) => {
 
     try {
       await axios.post(
-        "http://localhost:5000/forgot-password",
+        "${BASE_URL}/forgot-password",
         { email, newPassword },
       );
       setSuccess("Password updated successfully.");

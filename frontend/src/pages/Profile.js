@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import BASE_URL from "../config/api";
 import {
   Box,
   Button,
@@ -123,11 +124,11 @@ const Profile = ({ theme }) => {
     if (userId) {
       const fetchData = async () => {
         try {
-          const emailResponse = await axios.get(`http://localhost:5000/users/${userId}`);
-          const daysResponse = await axios.get(`http://localhost:5000/days-since-joined/${userId}`);
-          const documentResponse = await axios.get(`http://localhost:5000/document-count/${userId}`);
-          const joinedDateResponse = await axios.get(`http://localhost:5000/user-joined-date/${userId}`);
-          const socialMediaResponse = await axios.get(`http://localhost:5000/social-media/${userId}`);
+          const emailResponse = await axios.get(`${BASE_URL}/users/${userId}`);
+          const daysResponse = await axios.get(`${BASE_URL}/days-since-joined/${userId}`);
+          const documentResponse = await axios.get(`${BASE_URL}/document-count/${userId}`);
+          const joinedDateResponse = await axios.get(`${BASE_URL}/user-joined-date/${userId}`);
+          const socialMediaResponse = await axios.get(`${BASE_URL}/social-media/${userId}`);
 
           if (!emailResponse.data || !daysResponse.data || !documentResponse.data || !joinedDateResponse.data) {
             setEmail("N/A"); setDaysSinceJoined("N/A"); setDocumentCount("N/A"); setJoinedDate("N/A");
@@ -155,7 +156,7 @@ const Profile = ({ theme }) => {
     setUpdatingEmail(true);
     setError("");
     try {
-      await axios.post("http://localhost:5000/update-email", { userId, newEmail });
+      await axios.post("${BASE_URL}/update-email", { userId, newEmail });
       setEmail(newEmail);
       setIsEditingEmail(false);
     } catch (err) {
@@ -180,7 +181,7 @@ const Profile = ({ theme }) => {
     setError("");
     try {
       const socialMediaToSend = { ...socialMedia };
-      await axios.post("http://localhost:5000/update-social-media", { userId, ...socialMediaToSend });
+      await axios.post("${BASE_URL}/update-social-media", { userId, ...socialMediaToSend });
       setEditingField(null);
     } catch (err) {
       setError(`Failed to update ${platform} link.`);

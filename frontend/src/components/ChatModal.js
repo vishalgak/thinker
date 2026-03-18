@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import BASE_URL from "../config/api";
 import {
   Box,
   Button,
@@ -72,7 +73,7 @@ const ChatModal = ({ theme, open, onClose, initialMessage }) => {
     try {
       setLoading(true);
       const res = await axios.post(
-        "http://localhost:5000/chat",
+        ${BASE_URL},
         { message, originalText, sessionId }
       );
       

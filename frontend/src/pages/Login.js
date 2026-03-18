@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import BASE_URL from "../config/api";
 import {
   Box,
   Button,
@@ -81,7 +82,7 @@ const Login = ({ theme, onLogin }) => {
     setError("");
     try {
       const response = await axios.post(
-        "http://localhost:5000/login",
+        "${BASE_URL}/login",
         { email, password },
         { headers: { "Content-Type": "application/json" } }
       );

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import BASE_URL from "../config/api";
 import {
   Box,
   Button,
@@ -192,7 +193,7 @@ const UploadModal = ({
 
       // Send the extracted text to the backend endpoint
       const response = await axios.post(
-        "http://localhost:5000/upload",
+        "${BASE_URL}/upload",
         payload,
       );
       setLoading(false);

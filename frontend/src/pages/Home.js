@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import BASE_URL from "../config/api";
 import {
   Box,
   Typography,
@@ -210,7 +211,7 @@ const Home = ({ theme }) => {
     setLoadingRefinement(true);
     try {
       const response = await axios.post(
-        "http://localhost:5000/refine-summary",
+        "${BASE_URL}/refine-summary",
         {
           summary,
           refinementInstructions,
@@ -241,7 +242,7 @@ const Home = ({ theme }) => {
     try {
       setLoadingAudio(true);
       const response = await axios.post(
-        "http://localhost:5000/process-audio",
+        "${BASE_URL}/process-audio",
         formData,
         {
           headers: {
@@ -266,7 +267,7 @@ const Home = ({ theme }) => {
     setLoadingRecommendations(true);
     try {
       const response = await axios.post(
-        "http://localhost:5000/actionable-recommendations",
+        "${BASE_URL}/actionable-recommendations",
         {
           documentText: originalText,
         },
@@ -292,7 +293,7 @@ const Home = ({ theme }) => {
       const textToRewrite = window.tempSelectedText || originalText;
 
       const response = await axios.post(
-        "http://localhost:5000/content-rewriting",
+        "${BASE_URL}/content-rewriting",
         {
           documentText: textToRewrite,
           style: desiredStyle,
@@ -340,7 +341,7 @@ const Home = ({ theme }) => {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/upload",
+        "${BASE_URL}/upload",
         {
           title: "Selected Text",
           text: selectedText,
@@ -622,7 +623,7 @@ const Home = ({ theme }) => {
     setLoadingLanguage(true);
     try {
       const response = await axios.post(
-        "http://localhost:5000/summary-in-language",
+        "${BASE_URL}/summary-in-language",
         {
           documentText: originalText,
           language,
@@ -645,7 +646,7 @@ const Home = ({ theme }) => {
     setLoadingSentiment(true); // Start loading
     try {
       const response = await axios.post(
-        "http://localhost:5000/sentiment-analysis",
+        "${BASE_URL}/sentiment-analysis",
         {
           documentText: text,
         },
@@ -701,7 +702,7 @@ const Home = ({ theme }) => {
     setLoadingKeyIdeas(true);
     try {
       const response = await axios.post(
-        "http://localhost:5000/generate-key-ideas",
+        "${BASE_URL}/generate-key-ideas",
         {
           documentText: originalText,
         },
@@ -721,7 +722,7 @@ const Home = ({ theme }) => {
     setLoadingDiscussionPoints(true);
     try {
       const response = await axios.post(
-        "http://localhost:5000/generate-discussion-points",
+        "${BASE_URL}/generate-discussion-points",
         {
           documentText: originalText,
         },
@@ -743,7 +744,7 @@ const Home = ({ theme }) => {
     setLoadingBulletSummary(true);
     try {
       const response = await axios.post(
-        "http://localhost:5000/bullet-summary",
+        "${BASE_URL}/bullet-summary",
         {
           documentText: originalText,
         },

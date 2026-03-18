@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import BASE_URL from "../config/api";
 import {
   Box,
   Button,
@@ -98,7 +99,7 @@ const Register = ({ theme }) => {
     try {
       setLoading(true);
       const response = await axios.post(
-        "http://localhost:5000/register",
+        "${BASE_URL}/register",
         { email, password },
         { headers: { "Content-Type": "application/json" } }
       );

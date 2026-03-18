@@ -92,7 +92,7 @@ Make sure to replace these values with your Firebase and Google Generative AI cr
    yarn dev
    ```
 
-2. The server will be running on `http://localhost:3000` by default.
+2. The server will be running on `${BASE_URL}` by default.
 
 ## File Structure
 
@@ -122,7 +122,7 @@ DocuThinker-AI-App/
 Once the server is running, you can access the full API documentation via **Swagger** at:
 
 ```
-http://localhost:3000/api-docs
+${BASE_URL}/api-docs
 ```
 
 Here you’ll find all the available routes, their request formats, and responses.
@@ -169,7 +169,7 @@ You can test the API using tools like **Postman** or **curl**.
 #### Example Request to Register a User:
 
 ```bash
-curl --location --request POST 'http://localhost:3000/register' \
+curl --location --request POST '${BASE_URL}/register' \
 --header 'Content-Type: application/json' \
 --data-raw '{
     "email": "test@example.com",
@@ -180,7 +180,7 @@ curl --location --request POST 'http://localhost:3000/register' \
 #### Example Request to Upload a Document:
 
 ```bash
-curl --location --request POST 'http://localhost:3000/upload' \
+curl --location --request POST `${BASE_URL}/upload` \
 --header 'Authorization: Bearer <your-token>' \
 --form 'File=@"/path/to/your/file.pdf"'
 ```
@@ -189,7 +189,7 @@ curl --location --request POST 'http://localhost:3000/upload' \
 
 The backend of DocuThinker comes with self-documenting APIs using **Swagger**.
 
-- You can interact with the APIs at `http://localhost:3000/api-docs`.
+- You can interact with the APIs at `${BASE_URL}/api-docs`.
 - This Swagger documentation is automatically generated from the JSDoc comments in `index.js` and `controllers.js`.
 
 ### Authorization

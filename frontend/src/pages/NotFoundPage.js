@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import BASE_URL from "../config/api";
 import { Box, Typography, Button } from "@mui/material";
 
 const NotFoundPage = ({ theme }) => {

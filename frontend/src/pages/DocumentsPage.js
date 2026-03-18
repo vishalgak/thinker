@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import BASE_URL from "../config/api";
 import Divider from '@mui/material/Divider';
 import axios from "axios";
 import {
@@ -119,7 +120,7 @@ const DocumentsPage = ({ theme }) => {
     setSearchLoading(true);
     try {
       const response = await axios.get(
-        `http://localhost:5000/search-documents/${userId}?searchTerm=${encodeURIComponent(searchTerm)}`
+        `${BASE_URL}/search-documents/${userId}?searchTerm=${encodeURIComponent(searchTerm)}`
       );
       const results = Object.keys(response.data)
         .filter((key) => key !== "message")
@@ -148,7 +149,7 @@ const DocumentsPage = ({ theme }) => {
     }
     const fetchDocuments = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/documents/${userId}`);
+        const response = await axios.get(`${BASE_URL}/documents/${userId}`);
         const documentsData = response.data;
         const documentsList = Object.keys(documentsData)
           .filter((key) => key !== "message")
@@ -170,7 +171,7 @@ const DocumentsPage = ({ theme }) => {
   const handleViewDocument = async (docId) => {
     try {
       const response = await axios.get(
-        `http://localhost:5000/document-details/${userId}/${docId}`
+        `${BASE_URL}/document-details/${userId}/${docId}`
       );
       const { summary, originalText } = response.data;
       navigate("/home", { state: { summary, originalText } });
@@ -183,7 +184,7 @@ const DocumentsPage = ({ theme }) => {
 
   const handleDeleteDocument = async (docId) => {
     try {
-      await axios.delete(`http://localhost:5000/documents/${userId}/${docId}`);
+      await axios.delete(`${BASE_URL}/documents/${userId}/${docId}`);
       setDocuments(documents.filter((doc) => doc.id !== docId));
       setSearchResults(searchResults.filter((doc) => doc.docId !== docId));
     } catch (error) {
@@ -193,7 +194,7 @@ const DocumentsPage = ({ theme }) => {
 
   const handleConfirmDeleteAllDocuments = async () => {
     try {
-      await axios.delete(`http://localhost:5000/documents/${userId}`);
+      await axios.delete(`${BASE_URL}/documents/${userId}`);
       setDocuments([]);
       handleCloseDeleteAllDialog();
     } catch (error) {
@@ -215,7 +216,7 @@ const DocumentsPage = ({ theme }) => {
         setNewTitle("");
         return;
       }
-      await axios.post(`http://localhost:5000/update-document-title`, {
+      await axios.post(`${BASE_URL}/update-document-title`, {
         userId,
         docId,
         newTitle,

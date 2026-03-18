@@ -23,7 +23,7 @@ const swaggerOptions = {
     },
     servers: [
       {
-        url: "http://localhost:5000/",
+        url: "${BASE_URL}/",
         description: "Production server",
       },
       {
@@ -31,7 +31,7 @@ const swaggerOptions = {
         description: "Production server - Backup",
       },
       {
-        url: "http://localhost:3000",
+        url: "${BASE_URL}",
         description: "Local server - ensure you have the backend running",
       },
       {

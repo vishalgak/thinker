@@ -217,7 +217,7 @@ To get started, follow these steps:
 Ensure you have an `.env` file in the `frontend/` directory with the necessary environment variables:
 
 ```bash
-REACT_APP_BACKEND_URL=http://localhost:3000       # Backend URL for API requests
+REACT_APP_BACKEND_URL=${BASE_URL}       # Backend URL for API requests
 REACT_APP_GOOGLE_ANALYTICS_ID=G-XXXXXX            # Google Analytics ID (optional)
 ```
 
