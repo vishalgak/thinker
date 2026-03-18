@@ -194,9 +194,12 @@ app.use((err, req, res, next) => {
 });
 
 // Start the server
-const port = process.env.PORT || 3000;
+const port = process.env.PORT;
+
+if (!port) {
+  throw new Error("PORT is not defined ❌");
+}
 
 app.listen(port, "0.0.0.0", () => {
   console.log(`Server running on port ${port}`);
 });
-module.exports = app;
