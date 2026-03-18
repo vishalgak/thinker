@@ -4,7 +4,7 @@ const express = require("express");
 const cors = require("cors");
 require("dotenv").config();
 const swaggerDocs = require("./swagger/swagger");
-const { initializeRedis } = require("./redis/redisClient");
+
 const { graphqlHTTP } = require("express-graphql");
 const { makeExecutableSchema } = require("@graphql-tools/schema");
 const typeDefs = require("./graphql/schema");
@@ -71,7 +71,7 @@ app.use(
 );
 
 // Initialize Redis client
-initializeRedis();
+// initializeRedis();
 
 /**
  * Serve swagger.json
