@@ -1,6 +1,8 @@
+require("dotenv").config();
 const swaggerJsdoc = require("swagger-jsdoc");
 const path = require("path");
 
+const BASE_URL = process.env.BASE_URL;
 const swaggerOptions = {
   swaggerDefinition: {
     openapi: "3.0.0",
@@ -21,24 +23,20 @@ const swaggerOptions = {
         url: "https://opensource.org/licenses/MIT",
       },
     },
-    servers: [
-      {
-        url: `${BASE_URL}/`,
-        description: "Production server",
-      },
-      {
-        url: "https://docuthinker-ai-app.onrender.com/",
-        description: "Production server - Backup",
-      },
-      {
-        url: `${BASE_URL}/`,
-        description: "Local server - ensure you have the backend running",
-      },
-      {
-        url: "http://127.0.0.1:3000",
-        description: "Local server - ensure you have the backend running",
-      },
-    ],
+   servers: [
+  {
+    url: process.env.BASE_URL || "http://localhost:5000",
+    description: "Production server",
+  },
+  {
+    url: "https://docuthinker-ai-app.onrender.com",
+    description: "Backup production server",
+  },
+  {
+    url: "http://localhost:5000",
+    description: "Local development server",
+  },
+],
     components: {
       securitySchemes: {
         BearerAuth: {
