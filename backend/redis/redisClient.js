@@ -3,9 +3,15 @@ const redis = require("redis");
 let redisClient;
 
 const initializeRedis = async () => {
+  // ❌ Agar REDIS_URL nahi hai → Redis skip kar do
+  if (!process.env.REDIS_URL) {
+    console.log("Redis disabled ❌");
+    return;
+  }
+
   try {
     redisClient = redis.createClient({
-      url: process.env.REDIS_URL || "redis://127.0.0.1:6379",
+      url: process.env.REDIS_URL,
     });
 
     redisClient.on("connect", () => {
